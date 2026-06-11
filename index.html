@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booki Bridge CCTV Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">B</div><div><h1>Booki Bridge CCTV Map</h1><p>4대강 교량 CCTV 관측소 GIS</p></div></div>
+      <div class="panel summary-panel"><div class="summary-card"><span>전체 관측소</span><strong id="totalCount">0</strong></div><div class="summary-card"><span>표시 중</span><strong id="visibleCount">0</strong></div></div>
+      <div class="panel"><label>관측소 검색</label><input id="searchInput" class="search-input" placeholder="교량명, 주소, IP, 회선번호 검색" /></div>
+      <div class="panel"><div class="panel-title-row"><label>수계 필터</label><button id="resetFilterBtn" class="ghost-btn">초기화</button></div><div id="riverFilters" class="filter-list"></div></div>
+      <div class="panel"><div class="panel-title-row"><label>레이어 / 그룹</label><span id="groupCount" class="small-muted"></span></div><div id="groupFilters" class="group-filter-list"></div></div>
+      <div class="panel station-panel"><div class="panel-title-row"><label>관측소 목록</label><button id="fitBtn" class="ghost-btn">전체보기</button></div><div id="stationList" class="station-list"></div></div>
+    </aside>
+    <main class="map-area">
+      <header class="topbar"><div><h2 id="currentTitle">전체 관측소</h2><p id="currentSubtitle">마커를 클릭하면 상세정보가 표시됩니다.</p></div><div class="top-actions"><button id="routeModeBtn" class="primary-btn">점검 루트 설정</button><button id="clearRouteBtn" class="secondary-btn">루트 초기화</button></div></header>
+      <div id="map"></div>
+      <section id="routePanel" class="route-panel hidden"><div class="route-header"><div><strong>점검 루트</strong><p>루트 설정 모드에서 마커를 클릭하면 순번이 추가됩니다.</p></div><button id="downloadRouteBtn" class="secondary-btn">루트 JSON 저장</button></div><div id="routeList" class="route-list empty">아직 선택된 관측소가 없습니다.</div></section>
+      <section id="detailPanel" class="detail-panel hidden"><button id="closeDetailBtn" class="close-btn">×</button><div id="detailContent"></div></section>
+    </main>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
